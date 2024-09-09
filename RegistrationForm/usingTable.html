@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>TABLE Registration</title>
+</head>
+
+<body bgcolor="white">
+    <form>
+        <fieldset>
+            <legend>Registration Details:</legend>
+            <table bgcolor="skyblue" cellspacing="3px" cellpadding="5px" bordercolor="blue">
+                <tr>
+                    <th>NAME</th>
+                    <td><input type="text" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <th>AGE</th>
+                    <td><input type="date" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <th>GENDER</th>
+                    <td>
+                        <input type="radio" id="male" value="MALE" name="gender3">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" value="FEMALE" name="gender3">
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>COURSE</th>
+                    <td>
+                        <select required>
+                            <option value="">Select your course</option>
+                            <option value="CSD">CSD</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="Mech">Mech</option>
+                            <option value="Civil">Civil</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>EMAIL</th>
+                    <td><input type="email" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <th>PASSWORD</th>
+                    <td><input type="password" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <th>SKILLS</th>
+                    <td>
+                        <input type="checkbox" id="html" value="HTML">
+                        <label for="html">HTML</label>
+                        <input type="checkbox" id="css" value="CSS">
+                        <label for="css">CSS</label>
+                        <input type="checkbox" id="js" value="JS">
+                        <label for="js">JS</label><br>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Register">
+        </fieldset>
+    </form>
+</body>
+
+</html>
