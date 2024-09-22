@@ -1,0 +1,25 @@
+*{
+	padding:5px;
+	text-align:center;
+}
+
+h1{
+	color:brown
+	
+
+}
+h1:hover{
+	color:red	
+}
+h3{
+	color:blue
+	
+
+}
+h3:hover{
+	color:red;	
+}
+#table1:hover{
+	
+	color:blue;
+}
