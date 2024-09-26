@@ -1,0 +1,57 @@
+* {
+    margin: 10px;
+    padding: 10px;
+
+}
+
+h6 {
+
+    color: red;
+    backgound: green;
+}
+
+h6:hover {
+    color: blue;
+}
+
+.inline:hover {
+
+    color: red;
+
+}
+
+#External:hover {
+
+    color: green;
+
+}
+
+#red:hover {
+
+    background: red
+}
+
+#blue:hover {
+
+    background: blue
+}
+
+#green:hover {
+
+    background: green
+}
+
+#violet:hover {
+
+    background: violet
+}
+
+#black:hover {
+
+    background: black
+}
+
+#yellow:hover {
+
+    background: yellow
+}
