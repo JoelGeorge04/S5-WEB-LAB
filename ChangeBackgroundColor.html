@@ -1,0 +1,28 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <title>BackGround Color Change Using JS</title>
+    </head>
+
+    <body>
+        <h1>Background Color Change</h1>
+        <button id="colorChange">Change</button>
+        <script>
+            var i = 0;
+            let change = document.getElementById('colorChange');
+            change.addEventListener('click',
+                function () {
+                    arr = ["green", "pink", "blue", "red"];
+                    document.body.style.backgroundColor = arr[i];
+                    if (i == 3) {
+                        i = 0;
+                    }               //for each click to change color.
+                    else {
+                        i++;
+                    }
+                });
+        </script>
+    </body>
+
+    </html>
