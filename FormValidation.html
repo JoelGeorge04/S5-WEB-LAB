@@ -1,0 +1,42 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Form Validation</title>
+    </head>
+
+    <body bgcolor="sky blue">
+        <form id="form" onsubmit="return validateForm()">
+            <h1>Registraion Form</h1>
+            <br><br>
+            <label>Name:</label>
+            <input type="text" id="name" required><br><br>
+            <label>Email:</label>
+            <input type="email" id="email" required><br><br>
+            <label>Password:</label>
+            <input type="password" id="password" required><br><br>
+            <label>Phone Number:</label>
+            <input type="number" id="phNum"><br><br>
+            <input type="submit" id="submit" onclick="validateForm()">
+            <input type="Reset" id="reset">
+        </form>
+        <script>
+
+            function validateForm() {
+                let userName = document.getElementById('name').value;
+                let ph = document.getElementById('phNum').value;
+                let password = document.getElementById('password').value;
+                if (userName.length == "" || userName.length < '4') {
+                    alert("Enter your name and must be above 3 character!");
+                }
+                if (password.length <= '9') {
+                    alert("Password must be 8 character long!");
+                }
+                if (ph.length <= '9') {
+                    alert("Invalid Phone Number!");
+                }
+            }
+        </script>
+    </body>
+
+    </html>
