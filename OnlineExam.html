@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Quiz</title>
+
+</head>
+<center>
+
+    <body>
+        <h1>Simple Quiz</h1>
+        <form id="quizForm">
+            <div>
+                <p>1. What is 4*4?</p>
+                <label>
+                    <input type="radio" name="q1" value="a"> A.15
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="b"> B. 12
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="c"> C. 16
+                </label>
+            </div>
+
+            <div>
+                <p>2. What is 2 + 2?</p>
+                <label>
+                    <input type="radio" name="q2" value="a"> A. 3
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="b"> B. 4
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="c"> C. 5
+                </label>
+            </div>
+
+            <div>
+                <p>3. What is 12+56?</p>
+                <label>
+                    <input type="radio" name="q3" value="a"> A. 34
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="b"> B. 68
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="c"> C. 69
+                </label>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+        <div id="result" id="result"></div>
+
+        <script>
+            function checkAnswers() {
+                const resultDiv = document.getElementById('result');
+                const answers = ['c', 'b', 'b'];
+                const question = ['q1', 'q2', 'q3']
+
+                let score = 0;
+                let totalQuestions = answers.length;
+                let i = 0
+                for (i = 0; i < answers.length; i++) {
+
+                    const selectedAnswer = document.querySelector(`input[name="${question[i]}"]:checked`);
+
+                    // const selectedAnswer = selectedQuestion.value;
+                    console.log(selectedAnswer);
+
+                    if (selectedAnswer.value == answers[i]) {
+                        score++;
+                    }
+
+                }
+                resultDiv.textContent = `You scored ${score} out of ${totalQuestions}.`;
+                resultDiv.style.color = score == totalQuestions ? "blue" : "red";
+            }
+        </script>
+    </body>
+</center>
+
+</html>
