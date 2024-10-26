@@ -5,27 +5,51 @@
         <style>
             * {
                 padding: 5px;
-                text-align: center;
+            }
+            body{
+                text-align: center; 
+            }
+            .container{
+                color:gery;
+                border-radius: 5px;
+                background: lightblue;
+                width: 25%; /* Specify a width for the div */
+                margin: 0 auto; /* Centers it horizontally */  
+            }
+            .btn{
+                background: white;
+                color: blue;
+            }
+            .btn:hover{
+                background: white;
+                color: red;
             }
         </style>
     </head>
     <body>
+        <div class="container">
+        <table class="table">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"s autocomplete="off">  
-                Name: <input type="text" name="name" required><br><br>
-                Email: <input type="email" name="email" required><br><br>
-                Phone Number: <input type="number" name="ph_no" required><br><br>
-                <input type="submit" value="Go!"><br><br><br>
+                <tr><th>Name:</th> <td><input type="text" name="name" required></td></tr>
+                <tr><th>Email: </th><td><input type="email" name="email" required></td></tr>
+                <tr><th>Phone Number: </th><td><input type="number" name="ph_no" required></td></tr>
+                <tr><th colspan="2"><input type="submit" value="Go!" class="btn"></th></tr>
             </form>
-            
+        </table>
+        </div>
+        <br><br>
             <?php   
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Details:<br><br>";
                     $name = $_POST['name'];
                     $email = $_POST['email'];
                     $ph_no = $_POST['ph_no'];
-                    echo "Name: " . $name . "<br><br>";
-                    echo "Email: " . $email . "<br><br>";
-                    echo "Phone Number: " . $ph_no;
+                    echo "Name :  " . $name ;
+                    if($name == "Joel George" || $name == "JOEL GEORGE" || $name == "joel george"){
+                        echo "<span>  </span>You are great!<br><br>";
+                    }
+                    echo "Email :  " . $email . "<br><br>";
+                    echo "Phone Number :  " . $ph_no;
                 }
             ?>
     </body>
