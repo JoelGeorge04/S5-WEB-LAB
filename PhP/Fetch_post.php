@@ -16,6 +16,10 @@
                 width: 25%; /* Specify a width for the div */
                 margin: 0 auto; /* Centers it horizontally */  
             }
+            .container:hover{
+                background: pink;
+                transition: 0.5s;
+            }
             .btn{
                 background: white;
                 color: blue;
@@ -44,12 +48,18 @@
                     $name = $_POST['name'];
                     $email = $_POST['email'];
                     $ph_no = $_POST['ph_no'];
-                    echo "Name :  " . $name ;
+                    echo "Name :  " . $name."<br><br>";
+
                     if($name == "Joel George" || $name == "JOEL GEORGE" || $name == "joel george"){
                         echo "<span>  </span>You are great!<br><br>";
                     }
                     echo "Email :  " . $email . "<br><br>";
-                    echo "Phone Number :  " . $ph_no;
+                    if(strlen($ph_no)<10){
+                        echo "Invalid Phone Number!";
+                    }
+                    else{
+                        echo "Phone Number :  " . $ph_no;
+                    }
                 }
             ?>
     </body>
