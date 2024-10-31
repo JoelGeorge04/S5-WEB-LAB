@@ -36,7 +36,7 @@
             $conn = mysqli_connect($server_name, $username, $pass, $db_name);
 
             if (!$conn) {
-                echo "Error in v connection!<br>";
+                echo "Error in connection!<br>";
             }    
 
             $sql = "SELECT * FROM people";
