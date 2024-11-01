@@ -18,7 +18,6 @@
         }
         .container:hover {
             background: pink;
-            transition: 0.5s;
         }
         .btn {
             background: white;
@@ -28,9 +27,17 @@
             background: white;
             color: red;
         }
+        .h1{
+            color: blue;
+        }
+        .click{
+            color: blue;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
+    <h1 class="h1">Login</h1>
     <div class="container">
         <form method="post" action="" autocomplete="off">
             <table class="table">
@@ -48,28 +55,31 @@
             $pass = "";
             $db_name = "login";
 
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $ph_no = $_POST['ph_no'];
+            $name = $_POST['name']?? '';    //?? operator in PHP is called the null coalescing operator
+            $email = $_POST['email']?? '';
+            $ph_no = $_POST['ph_no']?? '';
 
-            $conn = mysqli_connect($server_name, $username, $pass, $db_name);
+                if ($name === '' || $email === '' || $ph_no === '') {
+                    echo "Please fill in all fields.<br><br>";
+                }
+                
+                $conn = mysqli_connect($server_name, $username, $pass, $db_name);
 
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            } else {
-                echo "Database connected successfully!<br>";
-            }
+                if (!$conn) {
+                    echo"Database connected successfully!<br>";
+                } 
+                $sql = "INSERT INTO people (namee, email, ph) VALUES ('$name', '$email', '$ph_no')";
 
-            $sql = "INSERT INTO people (namee, email, ph) VALUES ('$name', '$email', '$ph_no')";
+                if (!mysqli_query($conn, $sql)) {
+                    echo "Error in adding New record!";
+                }   
 
-            if (mysqli_query($conn, $sql)) {
-                echo "New record added successfully!";
-            } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-
-            mysqli_close($conn);
+                mysqli_close($conn);
+            
         
     ?>
+    <br><br>
+    <a href="FetchingDataDb.php" class="click">Click to see the Details--</a>
+
 </body>
 </html>

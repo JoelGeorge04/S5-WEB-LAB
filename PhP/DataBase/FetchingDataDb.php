@@ -11,7 +11,7 @@
             text-align: center;   
         }
         .id{
-            color: blue;
+            color: red;
             font: 20px;
         }
         #table{
@@ -19,6 +19,12 @@
             margin: 0 auto;
             border: 3px solid black;
             border-collapse: collapse;
+        }
+        .back{
+            text-align: center;
+            margin-left: 25%;
+            font-size: 25px;
+            color: blue;
         }
     </style>
 </head>
@@ -64,6 +70,9 @@
             } else {
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
+            mysqli_close($conn);
         ?>
+        <br><br>
+        <a href="PushingDataDb.php" class="back">Back--</a>
 </body>
 </html>
