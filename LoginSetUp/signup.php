@@ -20,6 +20,11 @@
             color: black;
             font-size: 20px;
         }
+        .para{
+            color: black;
+            font-size: 17px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -76,11 +81,13 @@
                                             </label>
                                         </div>
 
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                        <div class="d-flex flex-column justify-content-center align-items-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" class="btn btn-primary btn-lg mb-3">Register</button>
+                                            <p class="para">If you're not new... </p>
+                                            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='login.php'">Login</button>
                                         </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                </div>  
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                                     <img src="needed.jpg" class="img" alt="loading.." >
                                 </div>
@@ -91,6 +98,6 @@
             </div>
         </div>
     </section>
-
+    
 </body>
 </html>
