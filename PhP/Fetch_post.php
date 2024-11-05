@@ -33,7 +33,7 @@
     <body>
         <div class="container">
         <table class="table">
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"s autocomplete="off">  
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" autocomplete="off">  
                 <tr><th>Name:</th> <td><input type="text" name="name" required></td></tr>
                 <tr><th>Email: </th><td><input type="email" name="email" required></td></tr>
                 <tr><th>Phone Number: </th><td><input type="number" name="ph_no" required></td></tr>

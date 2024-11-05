@@ -14,29 +14,27 @@
     </form>
 
     <?php
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             $units = $_POST['units'];
-            
-            function calculate($units){
-                $totalbill = 0.0;
 
-                if($units <= 50){
-                    $totalbill = $units * 3.50; // Direct rate
-                }
-                else if($units <= 100){
-                    $totalbill = (50 * 3.50) + (($units - 50) * 4.50);
-                }
-                else if($units <= 200){
-                    $totalbill = (50 * 3.50) + (50 * 4.50) + (($units - 100) * 5.50);
-                }
-                    $totalbill = (50 * 3.50) + (50 * 4.50) + (100 * 5.50) + (($units - 200) * 6.50); 
+            function calculate($units) {
+                $totalBill = 0.0;
+
+                if ($units <= 50) {
+                    $totalBill = $units * 3.50; // Rate for the first 50 units
+                } elseif ($units <= 100) {
+                    $totalBill = (50 * 3.50) + (($units - 50) * 4.50); // Rate for 51-100 units
+                } elseif ($units <= 200) {
+                    $totalBill = (50 * 3.50) + (50 * 4.50) + (($units - 100) * 5.50); // Rate for 101-200 units
+                } else {
+                    $totalBill = (50 * 3.50) + (50 * 4.50) + (100 * 5.50) + (($units - 200) * 6.50); // Rate for above 200 units
                 }
 
-                return $totalbill;
+                return $totalBill;
             }
 
             $bill = calculate($units);
-            echo "<p>Total bill is $bill</p>";
+            echo "<p>Total bill is: ₹$bill</p>"; // Display the total bill without formatting
         }
     ?>
 </body>

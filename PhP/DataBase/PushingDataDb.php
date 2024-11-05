@@ -39,7 +39,7 @@
 <body>
     <h1 class="h1">Login</h1>
     <div class="container">
-        <form method="post" action="" autocomplete="off">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" autocomplete="off">
             <table class="table">
                 <tr><th>Name:</th><td><input type="text" name="name" required></td></tr>
                 <tr><th>Email:</th><td><input type="email" name="email" required></td></tr>
