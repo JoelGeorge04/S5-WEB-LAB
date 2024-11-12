@@ -13,7 +13,7 @@
     <h2>Uploaded File...</h2>
     <?php
 
-            $myFile = $_FILES['filename']['name'];
+            $myFile = $_FILES['filename']['name'];                      //multidimensional associative array [''][''].
             $tempName = $_FILES['filename']['tmp_name'];
             $new_file_name = time() . "_" . $myFile;
             

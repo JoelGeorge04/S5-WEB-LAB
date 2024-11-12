@@ -3,6 +3,7 @@
 <head>
     <title>Data Collection</title>
     <style>
+        /* Your existing CSS */
         * {
             padding: 5px;
             box-sizing: border-box;
@@ -24,7 +25,7 @@
             width: 420px; 
             padding: 20px;
             display: flex;
-            margin-left: -240px;
+            margin-left: -290px;
             flex-direction: column;
             align-items: center; 
             justify-content: center; 
@@ -33,8 +34,8 @@
         .login {
             color: blue;
             font-size: 60px;
-            MARGIN-TOP: -400px;
-            margin-left: 30px;
+            margin-top: -400px;
+            margin-left: 80px;
         }
         .val {
             color: black;
@@ -44,6 +45,7 @@
         }
         .table {
             width: 100%;
+            padding: 10px;
         }
         .btn {
             background: white;
@@ -71,7 +73,7 @@
     
     <script>
         function SuccessfullAlert(){
-            alert("Login Successfull!");
+            alert("Login Successful!");
             window.location.href = "LoggedPage.php";
         }
         function FailedAlert(){
@@ -98,39 +100,57 @@
                     <td><input type="password" name="pass" placeholder="Password" required></td>
                 </tr>
                 <tr>
+                    <th>
+                        <!---space-->
+                    </th>
+                </tr>
+                <tr>
                     <th colspan="2">
                         <input type="submit" value="Login" class="btn">
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input value="SignUp" onClick="window.location.href='signup.php'" class="btn">
                     </th>
                 </tr>
             </table>
         </form>
     </div>
+
     <?php
+       session_start();
        $server_name = "localhost";
        $username = "root";
        $password = "";
-       $db_name = "oglogin";
-
-        $uname = $_POST['uname']?? '';
-        $email = $_POST['email']?? '';
-        $pass = $_POST['pass']?? '';
+       $db_name = "login";
+       
+       $uname = $_POST['uname'] ?? '';
+       $email = $_POST['email'] ?? '';
+       $pass = $_POST['pass'] ?? '';
 
        $conn = mysqli_connect($server_name, $username, $password, $db_name);
-       if(!$conn){
+       if (!$conn) {
            echo "Error in connection!<br>";
        }
-       $sql = "SELECT namee,email,pass FROM mytable
-               WHERE namee = '$uname' AND email = '$email' AND pass = '$pass'";
 
-         $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result) > 0){
-                echo "<script>SuccessfullAlert();</script>";
-            }
-            else{
-                echo "<script>FailedAlert();</script>";
-            }
+       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+           $sql = "SELECT namee, email, pass FROM mytable
+                   WHERE namee = '$uname' AND email = '$email' AND pass = '$pass'";
 
-        
+           $result = mysqli_query($conn, $sql);
+           if (mysqli_num_rows($result) > 0) {
+               $_SESSION['username'] = $uname;  // Store username in session
+               $_SESSION['email'] = $email;    //store email in session
+
+               
+               setcookie("username", $uname, time() + (86400 * 1), "/"); // Expires in a day
+
+               echo "<script>SuccessfullAlert();</script>";
+           } else {
+               echo "<script>FailedAlert();</script>";
+           }
+       }
     ?>
 </body>
 </html>
