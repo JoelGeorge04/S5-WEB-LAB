@@ -6,7 +6,7 @@
     </head>
 
     <body bgcolor="sky blue">
-        <form id="form" onsubmit="return validateForm()">
+        <form id="form">
             <h1>Registraion Form</h1>
             <br><br>
             <label>Name:</label>
@@ -29,7 +29,7 @@
                 if (userName.length == "" || userName.length < '4') {
                     alert("Enter your name and must be above 3 character!");
                 }
-                if (password.length <= '9') {
+                if (password.length < '8') {
                     alert("Password must be 8 character long!");
                 }
                 if (ph.length <= '9') {
